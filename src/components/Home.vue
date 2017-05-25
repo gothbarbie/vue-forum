@@ -1,18 +1,25 @@
 <template>
   <div>
-    <h1>Trade or View your Portfolio</h1>
-    <h6>You may Save &amp; Load your Data</h6>
-    <h6>Click on 'End Day' to begin a New Day!</h6>
+    <h1>Forum</h1>
+    <p>This is an attempt to write a forum from scratch, using JavaScript and the framework Vue.</p>
+    <h4>Dependencies</h4>
+    <ul>
+      <li>vue-router (routing)</li>    
+      <li>vuex (state)</li>
+      <li>vue-resource (http-resources)</li>
+    </ul>
+    <p>The database is hosted on Firebase (Google)</p>
+    <p>For faster initial design, we use Bootstrap</p>
     <hr>
-    <p>Your Funds: {{ funds | currency }}</p>
+    <p>The forum has {{ users.length }} members.</p>
   </div>
 </template>
 
 <script>
   export default {
     computed: {
-      funds () {
-        return this.$store.getters.funds
+      users () {
+        return this.$store.getters.users
       }
     }
   }

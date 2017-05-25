@@ -10,14 +10,15 @@
 </template>
 
 <script>
-  import Header from './components/Header.vue'
+  import Header from './components/partials/Header.vue'
 
   export default {
     components: {
       appHeader: Header
     },
     created () {
-      this.$store.dispatch('initStocks')
+      this.$store.dispatch('initCategories')
+      this.$store.dispatch('initUsers')
     }
   }
 </script>

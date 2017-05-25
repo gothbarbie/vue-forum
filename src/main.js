@@ -9,9 +9,9 @@ import store from './store/store'
 Vue.use(VueRouter)
 Vue.use(VueResource)
 
-Vue.http.options.root = 'https://vuejs-stock-trader-6c00a.firebaseio.com/'
+Vue.http.options.root = 'https://vue-forum-f3b8b.firebaseio.com/'
 
-Vue.filter('currency', (value) => {
+Vue.filter('currency', value => {
   return '$' + value.toLocaleString()
 })
 
