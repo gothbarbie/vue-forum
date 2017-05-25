@@ -1,29 +1,41 @@
 <template>
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-      <h3>New Category</h3>
+  <section>
+    <h3>New Category</h3>
+    <hr>
+
+    <div class="form-horizontal">
+
       <div class="form-group">
-        <input 
-          type="text"
-          class="form-control"
-          placeholder="Name"
-          v-model="category.name" />
-      </div>
-      <div class="form-group">
-        <input 
-          type="text"
-          class="form-control"
-          placeholder="Description"
-          v-model="category.description" />
-      </div>
-        <div class="pull-right">
-          <button 
-            class="btn btn-primary"
-            @click="save"
-            :disabled="category.name.length <= 3 || category.description.length <= 3">Create</button>
+        <label class="col-sm-2 control-label" for="inputName">Name</label>
+        <div class="col-sm-10">
+          <input 
+            type="text"
+            class="form-control"
+            placeholder="What should it be named?"
+            v-model="category.name" />
         </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="inputFirstName">Description</label>
+        <div class="col-sm-10">
+          <input 
+            type="text"
+            class="form-control"
+            placeholder="What is this category about?"
+            v-model="category.description" />
+        </div>
+      </div>
+
+      <div class="pull-right">
+        <button 
+          class="btn btn-primary"
+          @click="save"
+          :disabled="category.name.length <= 3 || category.description.length <= 3">Create</button>
+      </div>
+    
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
