@@ -11,10 +11,6 @@ Vue.use(VueResource)
 
 Vue.http.options.root = 'https://vue-forum-f3b8b.firebaseio.com/'
 
-Vue.filter('currency', value => {
-  return '$' + value.toLocaleString()
-})
-
 const router = new VueRouter({
   mode: 'history',
   routes

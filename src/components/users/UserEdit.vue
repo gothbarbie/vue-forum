@@ -1,25 +1,48 @@
 <template>
   <div>
     <template v-if="getUser">
-      <h3>Edit <span >{{ user.name }}</span></h3>
-      <input 
-        type="text"
-        class="form-control"
-        placeholder="First name"
-        v-model="user.firstName" />
-      <input 
-        type="text"
-        class="form-control"
-        placeholder="Last name"
-        v-model="user.lastName" />
-      <div class="pull-right">
-        <button 
-          class="btn btn-danger"
-          @click="remove">Delete</button>
-        <button 
-          class="btn btn-primary"
-          @click="save"
-          :disabled="user.firstName.length <= 3 || user.lastName.length <= 3">Save</button>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>Edit <span>{{ user.firstName }}</span></h2>
+        </div>
+      </div>
+
+      <hr>
+      
+      <div class="form-horizontal">
+      
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="inputFirstName">First name</label>
+          <div class="col-sm-10">
+            <input 
+              type="text"
+              class="form-control"
+              placeholder="First name"
+              v-model="user.firstName" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="inputFirstName">First name</label>
+          <div class="col-sm-10">
+            <input 
+              type="text"
+              class="form-control"
+              placeholder="Last name"
+              v-model="user.lastName" />
+          </div>
+        </div>
+
+        <div class="pull-right">
+          <button 
+            class="btn btn-danger"
+            @click="remove">Delete</button>
+          <button 
+            class="btn btn-primary"
+            @click="save"
+            :disabled="user.firstName.length <= 3 || user.lastName.length <= 3">Save</button>
+        </div>
+
       </div>
     </template>
     <template v-else>
@@ -41,12 +64,8 @@
     },
     computed: {
       getUser() {
-        const userFound = this.$store.getters.users(this.$route.params.id)
-        if (userFound) {
-          this.user = userFound
-          return true
-        }
-        return false
+        this.user = this.$store.getters.userById(this.$router.params.id)
+        return true
       }
     },
     methods: {

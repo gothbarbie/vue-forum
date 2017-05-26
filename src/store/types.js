@@ -11,6 +11,7 @@ export const USER_NEW = 'users/user-new'
 export const USER_UPDATE = 'users/user-update'
 export const USER_DELETE = 'users/user-delete'
 export const USERS_SET = 'users/users-set'
+export const USER_SET = 'users/user-set'
 
 export const TOPICS = 'topics/topics'
 export const TOPIC = 'topics/topic'

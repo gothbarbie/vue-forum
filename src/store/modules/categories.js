@@ -1,5 +1,6 @@
 import categories from '../../data/categories'
 import * as types from '../types'
+import Vue from 'vue'
 
 const state = {
   categories: []
@@ -36,8 +37,15 @@ const actions = {
   deleteCategory: ({ commit }, id) => {
     commit(types.CATEGORY_DELETE, id)
   },
-  initCategories: ({ commit }) => {
-    commit(types.CATEGORIES_SET, categories)
+  loadCategories: ({ commit }) => {
+    Vue.http
+      .get('categories.json')
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          commit(types.CATEGORIES_SET, data)
+        }
+      })
   }
 }
 

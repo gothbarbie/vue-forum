@@ -11,7 +11,7 @@
           <router-link to="/categories" activeClass="active" tag="li"><a>Categories</a></router-link>
         </ul>
 
-        <strong class="navbar-text navbar-right">Members: {{ users.length }}</strong>
+        <strong class="navbar-text navbar-right">Members: </strong>
 
         <ul class="nav navbar-nav navbar-right">
           <li 
@@ -23,9 +23,11 @@
               data-toggle="dropdown" 
               role="button" 
               aria-haspopup="true" 
-              aria-expanded="false">Profile <span class="caret"></span></a>
+              aria-expanded="false">{{ user.firstName }} {{ user.lastName }} <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Messages</a></li>
+              <li><a :href="'users/' + user.id">Profile</a></li>
+              <li><a href="#">Topics</a></li>
+              <li><a href="#">Posts</a></li>
               <li><a href="#">Log out</a></li>
             </ul>
           </li>
@@ -45,24 +47,11 @@
       }
     },
     computed: {
+      user () {
+        return this.$store.getters.user
+      },  
       users () {
         return this.$store.getters.users
-      }
-    }, 
-    methods: {
-      ...mapActions({
-        fetchData: 'loadData'
-      }),
-      // saveData () {
-      //   const data = {
-      //     funds: this.$store.getters.funds, 
-      //     stockPortfolio: this.$store.getters.stockPortfolio,
-      //     stocks: this.$store.getters.stocks
-      //   }
-      //   this.$http.put('data.json', data)
-      // },
-      loadData () {
-        this.fetchData()
       }
     }
   }

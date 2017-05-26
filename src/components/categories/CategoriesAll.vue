@@ -1,9 +1,12 @@
 <template>
-  <div>
-    <h2>Categories</h2>
-    <hr>
+  <section>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Categories <span><a href="categories/new" class="btn btn-primary">New</a></span></h2>
+      </div>
+    </div>
     <app-category v-for="category in categories" :category="category"></app-category>
-  </div>
+  </section>
 </template>
 
 <script>

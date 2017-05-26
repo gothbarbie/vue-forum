@@ -1,6 +1,11 @@
 <template>
   <section>
-    <h3>New Category</h3>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>New Category</h2>
+      </div>
+    </div>
+    
     <hr>
 
     <div class="form-horizontal">
@@ -44,12 +49,22 @@
       return {
         category: {
           name: '',
-          description: ''
+          description: '',
+          authorId: this.userId
         }
+      }
+    },
+    computed: {
+      userId() {
+        if (this.$state.getters.user) {
+          return this.$state.getters.user.id
+        }
+        return null
       }
     },
     methods: {
       save() {
+        this.$http.post('categories.json', this.category)
         this.$store.dispatch('createCategory', this.category)
         this.$router.push('/categories')
       }

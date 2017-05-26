@@ -1,12 +1,19 @@
 import users from '../../data/users'
-
+import Vue from 'vue'
 import * as types from '../types'
 
 const state = {
-  users: []
+  users: [],
+  user: {}
 }
 
 const mutations = {
+  [types.USER_SET]: (state, id) => {
+    const user = state.users.find(usr => usr.id == id)
+    if (user) {
+      state.user = user
+    }
+  },
   [types.USERS_SET]: (state, users) => {
     state.users = users
   },
@@ -37,14 +44,24 @@ const actions = {
   deleteUser: ({ commit }, id) => {
     commit(types.USER_DELETE, id)
   },
-  initUsers: ({ commit }) => {
-    commit(types.USERS_SET, users)
+  loadUsers: ({ commit }) => {
+    Vue.http.get('users.json').then(response => response.json()).then(data => {
+      if (data) {
+        commit(types.USERS_SET, data)
+      }
+    })
+  },
+  setUser: ({ commit }, id) => {
+    commit(types.USER_SET, id)
   }
 }
 
 const getters = {
   users: state => state.users,
-  user: state => state.currentUser
+  user: state => state.user,
+  userById: (state, getters) => id => {
+    return getters.users.find(usr => usr.id == id)
+  }
 }
 
 export default {

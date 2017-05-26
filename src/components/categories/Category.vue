@@ -2,18 +2,18 @@
   <article class="panel panel-default">
     <header class="panel-heading">
       <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-8">
           <h3 class="panel-title">{{ category.name }}</h3>
           {{ category.description }}
         </div>
-        <div class="col-sm-10">
+        <div class="col-sm-4">
           <a :href="'categories/' + category.id + '/edit'" class="btn btn-primary pull-right">Edit</a>
         </div>
       </div>
     </header>
     <div class="panel-body">
       <table class="table">
-        <caption>Topics</caption>
+        <caption>Topics <a :href="'topics/new?cat=' + category.id" class="btn btn-primary btn-xs">New</a></caption>
         <thead>
           <tr>
             <th>Topic</th>

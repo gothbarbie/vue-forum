@@ -1,6 +1,11 @@
 <template>
   <section>
-    <h3>New User</h3>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>New User</h2>
+      </div>
+    </div>
+    
     <hr>
 
     <div class="form-horizontal">      
@@ -67,6 +72,7 @@
     },
     methods: {
       save() {
+        this.$http.post('users.json', this.user)
         this.$store.dispatch('createUser', this.user)
         this.$router.push('/users')
       }

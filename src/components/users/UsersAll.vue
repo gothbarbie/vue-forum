@@ -1,8 +1,15 @@
 <template>
-  <div>
-    <h2>Users</h2>
+  <section>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Users <span><a href="users/new" class="btn btn-primary">New</a></span></h2>
+      </div>
+    </div>
+  
     <app-user v-for="user in users" :user="user"></app-user>
-  </div>
+    
+  </section>
 </template>
 
 <script>

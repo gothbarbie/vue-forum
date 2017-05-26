@@ -1,7 +1,7 @@
 import Home from './components/Home.vue'
 import Users from './components/users/Users.vue'
 import UsersAll from './components/users/UsersAll.vue'
-import User from './components/users/User.vue'
+import UserDetails from './components/users/UserDetails.vue'
 import UserEdit from './components/users/UserEdit.vue'
 import UserNew from './components/users/UserNew.vue'
 
@@ -25,7 +25,7 @@ export const routes = [
     children: [
       { path: '', component: UsersAll },
       { path: 'new', component: UserNew },
-      { path: ':id', component: User, props: true },
+      { path: ':id', component: UserDetails, props: true },
       { path: ':id/edit', component: UserEdit, props: true }
     ]
   },

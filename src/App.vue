@@ -17,9 +17,10 @@
       appHeader: Header
     },
     created () {
-      this.$store.dispatch('initCategories')
-      this.$store.dispatch('initTopics')
-      this.$store.dispatch('initUsers')
+      this.$store.dispatch('loadCategories')
+      this.$store.dispatch('loadTopics')
+      this.$store.dispatch('loadUsers')
+      this.$store.dispatch('setUser', 1)
     }
   }
 </script>

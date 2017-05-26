@@ -36,7 +36,7 @@ const actions = {
   deleteTopic: ({ commit }, id) => {
     commit(types.TOPIC_DELETE, id)
   },
-  initTopics: ({ commit }) => {
+  loadTopics: ({ commit }) => {
     commit(types.TOPICS_SET, topics)
   }
 }
@@ -51,8 +51,9 @@ const getters = {
     })
 
     let notEmpty = []
-    for (let i of results)
+    for (let i of results) {
       i && notEmpty.push(i)
+    }
 
     return notEmpty
   }
