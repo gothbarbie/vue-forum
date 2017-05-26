@@ -1,6 +1,9 @@
 # vue-forum
 
-> A Vue.js project
+> A Vue-based client for my Forum-application
+
+## API
+The [API](https://github.com/gothbarbie/forum-api) must run locally on port: xxxx
 
 ## Build Setup
 
