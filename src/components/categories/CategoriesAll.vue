@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>Categories</h2>
+    <hr>
     <app-category v-for="category in categories" :category="category"></app-category>
   </div>
 </template>

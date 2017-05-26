@@ -1,5 +1,5 @@
 <template>
   <div>
-    <router-view></router-view>
+    <h2>Topic New</h2>
   </div>
 </template>

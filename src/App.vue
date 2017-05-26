@@ -18,6 +18,7 @@
     },
     created () {
       this.$store.dispatch('initCategories')
+      this.$store.dispatch('initTopics')
       this.$store.dispatch('initUsers')
     }
   }

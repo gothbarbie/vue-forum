@@ -11,6 +11,12 @@ import Category from './components/categories/Category.vue'
 import CategoryEdit from './components/categories/CategoryEdit.vue'
 import CategoryNew from './components/categories/CategoryNew.vue'
 
+import Topics from './components/topics/Topics.vue'
+import TopicsInCategory from './components/topics/TopicsInCategory.vue'
+import TopicNew from './components/topics/TopicNew.vue'
+import Topic from './components/topics/Topic.vue'
+import TopicEdit from './components/topics/TopicEdit.vue'
+
 export const routes = [
   { path: '/', component: Home },
   {
@@ -29,8 +35,18 @@ export const routes = [
     children: [
       { path: '', component: CategoriesAll },
       { path: 'new', component: CategoryNew },
-      { path: ':id', component: Category, props: true },
+      { path: ':id', component: Category },
       { path: ':id/edit', component: CategoryEdit, props: true }
+    ]
+  },
+  {
+    path: '/topics',
+    component: Topics,
+    children: [
+      { path: '', component: TopicsInCategory },
+      { path: 'new', component: TopicNew },
+      { path: ':id', component: Topic },
+      { path: ':id/edit', component: TopicEdit }
     ]
   }
 ]
